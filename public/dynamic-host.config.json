@@ -1,0 +1,71 @@
+{
+  "routes": [
+    {
+      "title": "Home",
+      "path": "/remote-b",
+      "component": null,
+      "routes": [
+        {
+          "title": "Remote B",
+          "path": "/remote-b/",
+          "component": {
+            "shouldMemorize": false,
+            "url": "http://localhost:3002",
+            "scope": "remote_b",
+            "module": "remote_b"
+          }
+        },
+        {
+          "title": "About",
+          "path": "/remote-b/about",
+          "component": {
+            "shouldMemorize": false,
+            "url": "http://localhost:3002",
+            "scope": "remote_b",
+            "module": "about"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Remote Nextjs",
+      "path": "/remote-next",
+      "component": {
+        "shouldMemorize": false,
+        "url": "http://localhost:3000/_next/static/chunks",
+        "scope": "remote_next",
+        "module": "home"
+      },
+      "routes": []
+    },
+    {
+      "title": null,
+      "path": "*",
+      "component": {
+        "shouldMemorize": false,
+        "url": "http://localhost:3002",
+        "scope": "remote_b",
+        "module": "not_found"
+      },
+      "routes": []
+    }
+  ],
+  "layout": [
+    {
+      "shouldMemorize": true,
+      "url": "http://localhost:3001",
+      "scope": "remote_a",
+      "module": "top_navigation",
+      "hasOutLet": false,
+      "children": []
+    },
+    {
+      "shouldMemorize": true,
+      "url": "http://localhost:3001",
+      "scope": "remote_a",
+      "module": "layout",
+      "hasOutLet": true,
+      "children": []
+    }
+  ]
+}

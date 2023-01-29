@@ -1,0 +1,20 @@
+{
+  "generator-creative-tech": {
+    "author": "alexandervonmalachowski",
+    "email": "alexander.vonmalachowski@gmail.com",
+    "url": "https://github.com/alexandervonmalachowski",
+    "repo": "git@github.com:alexandervonmalachowski/remote-a.git",
+    "features": [
+      "azure-github-blob"
+    ],
+    "name": "remote-a",
+    "feature": "azure",
+    "fileType": "bicep",
+    "accountName": "remotea",
+    "subscription": "mr-creative-tech",
+    "confirmSetup": true,
+    "withPostgre": "false",
+    "deployPrefix": "",
+    "templateType": "bicep"
+  }
+}
