@@ -10,6 +10,7 @@
           "path": "/remote-b/",
           "component": {
             "shouldMemorize": false,
+            "showFallback": true,
             "url": "http://localhost:3002",
             "scope": "remote_b",
             "module": "remote_b"
@@ -20,6 +21,7 @@
           "path": "/remote-b/about",
           "component": {
             "shouldMemorize": false,
+            "showFallback": true,
             "url": "http://localhost:3002",
             "scope": "remote_b",
             "module": "about"
@@ -32,6 +34,7 @@
       "path": "/remote-next",
       "component": {
         "shouldMemorize": false,
+        "showFallback": true,
         "url": "http://localhost:3000/_next/static/chunks",
         "scope": "remote_next",
         "module": "home"
@@ -43,6 +46,7 @@
       "path": "*",
       "component": {
         "shouldMemorize": false,
+        "showFallback": true,
         "url": "http://localhost:3002",
         "scope": "remote_b",
         "module": "not_found"
@@ -53,6 +57,7 @@
   "layout": [
     {
       "shouldMemorize": true,
+      "showFallback": false,
       "url": "http://localhost:3001",
       "scope": "remote_a",
       "module": "top_navigation",
@@ -61,6 +66,7 @@
     },
     {
       "shouldMemorize": true,
+      "showFallback": false,
       "url": "http://localhost:3001",
       "scope": "remote_a",
       "module": "layout",
