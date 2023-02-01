@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve",
-    "build": "yarn run clean:pre && webpack --mode production && yarn run clean:post",
+    "build": "yarn run clean:pre && webpack --mode production -o out && yarn run clean:post",
     "serve": "serve dist -p 3001",
     "clean:pre": "rimraf dist && rimraf public/remote_a-dts.tgz",
     "clean:post": "rimraf exposedTypes",
