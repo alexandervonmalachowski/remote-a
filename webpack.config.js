@@ -118,6 +118,14 @@ module.exports = (env, argv) => {
       new FileManagerWebPackPlugin({
         events: {
           onEnd: {
+            copy: isProduction
+              ? [
+                  {
+                    source: "public/host.config.json",
+                    destination: "out/host.config.json",
+                  },
+                ]
+              : [],
             archive: [
               {
                 source: `./exposedTypes/${moduleFederationConfig.name}`,
