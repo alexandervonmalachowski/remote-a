@@ -1,0 +1,44 @@
+name: Deploy FE
+
+on:
+  push:
+    branches:
+      - "main"
+
+env:
+  CI: true
+  NODE_VERSION: 16.x
+  NEXT_TELEMETRY_DISABLED: 1
+  AZURE_SUBSCRIPTION: mr-creative-tech
+
+jobs:
+  Build-and-Deploy-FE:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: env
+        run: env
+      - name: pwd
+        run: pwd
+
+      - name: login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: deployment script - dev
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: ./infrastructure/blob-deploy-ci.sh $AZURE_SUBSCRIPTION
+
+      - name: logout
+        if: always()
+        run: |
+          az logout
