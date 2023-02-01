@@ -30,8 +30,25 @@ const moduleFederationConfig = {
     },
   },
 };
+
+const fileManagerConfig = (isProduction) => ({
+  archive: [
+    {
+      source: `./exposedTypes/${moduleFederationConfig.name}`,
+      destination: `./${isProduction ? "dist" : "public"}/${
+        moduleFederationConfig.name
+      }-dts.tgz`,
+      format: "tar",
+      options: {
+        gzip: true,
+      },
+    },
+  ],
+});
+
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
+  const fileManagerWebpackConfig = fileManagerConfig(isProduction);
   return {
     entry: "./src/index.ts",
     mode: "development",
@@ -115,32 +132,23 @@ module.exports = (env, argv) => {
         template: "./public/index.html",
       }),
       new ForkTsCheckerWebpackPlugin(),
-      new FileManagerWebPackPlugin({
-        events: {
-          onEnd: {
-            copy: isProduction
-              ? [
-                  {
-                    source: "public/host.config.json",
-                    destination: "out/host.config.json",
-                  },
-                ]
-              : [],
-            archive: [
-              {
-                source: `./exposedTypes/${moduleFederationConfig.name}`,
-                destination: `./${isProduction ? "dist" : "public"}/${
-                  moduleFederationConfig.name
-                }-dts.tgz`,
-                format: "tar",
-                options: {
-                  gzip: true,
+      new FileManagerWebPackPlugin(
+        isProduction
+          ? {
+              events: {
+                onEnd: {
+                  ...fileManagerWebpackConfig,
+                  copy: [
+                    {
+                      source: "public/host.config.json",
+                      destination: "out/host.config.json",
+                    },
+                  ],
                 },
               },
-            ],
-          },
-        },
-      }),
+            }
+          : { events: { onEnd: { ...fileManagerWebpackConfig } } }
+      ),
     ],
   };
 };
