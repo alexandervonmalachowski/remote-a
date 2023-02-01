@@ -7,7 +7,7 @@ export type TopNavItem = {
   title: string;
 };
 
-import dynamicHostConfig from "../../../public/dynamic-host.config.json";
+import dynamicHostConfig from "../../../public/host.config.json";
 import {
   DynamicRecursiveRouteProps,
   getFlattenRoutes,
