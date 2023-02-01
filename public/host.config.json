@@ -11,7 +11,7 @@
           "component": {
             "shouldMemorize": false,
             "showFallback": true,
-            "url": "https://stremotebdev.z6.web.core.windows.net",
+            "url": "http://localhost:3002",
             "scope": "remote_b",
             "module": "remote_b"
           }
@@ -22,7 +22,7 @@
           "component": {
             "shouldMemorize": false,
             "showFallback": true,
-            "url": "https://stremotebdev.z6.web.core.windows.net",
+            "url": "http://localhost:3002",
             "scope": "remote_b",
             "module": "about"
           }
@@ -47,7 +47,7 @@
       "component": {
         "shouldMemorize": false,
         "showFallback": true,
-        "url": "https://stremotea.z6.web.core.windows.net",
+        "url": "http://localhost:3001",
         "scope": "remote_b",
         "module": "not_found"
       },
@@ -58,7 +58,7 @@
     {
       "shouldMemorize": true,
       "showFallback": false,
-      "url": "https://stremotea.z6.web.core.windows.net",
+      "url": "http://localhost:3001",
       "scope": "remote_a",
       "module": "top_navigation",
       "hasOutLet": false,
@@ -67,7 +67,7 @@
     {
       "shouldMemorize": true,
       "showFallback": false,
-      "url": "https://stremotea.z6.web.core.windows.net",
+      "url": "http://localhost:3001",
       "scope": "remote_a",
       "module": "layout",
       "hasOutLet": true,
